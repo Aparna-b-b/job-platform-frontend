@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 650px;
+            background-color: hsl(0,0%,60%);
+            padding: 30px;
+            margin: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: black;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: maroon;
+        }
+        input, textarea, button, select {
+            width: 96%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 15px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        select {
+            padding: 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Private Sector Job Application</h1>
+        <form id="jobApplicationForm" action="submit.php" method="POST">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">--Select Gender--</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="others">Others</option>
+            </select>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="job">Applying Job for:</label>
+            <select id="job" name="job" required>
+                <option value="">--Select Job--</option>
+                <option value="home health aid">Home Health Aid</option>
+                <option value="housekeeper">House Keeper</option>
+                <option value="nanny">Nanny</option>
+                <option value="gardener">Gardener</option>
+                <option value="handyman">HandyMan</option>
+                <option value="laundry attendant">Laundry Attendant</option>
+                <option value="dog walker">Dog Walker</option>
+                <option value="virtual assistant">Virtual Assistant</option>
+                <option value="companion caregiver">Companion Caregiver</option>
+                <option value="personal shopper">Personal Shopper</option>
+            </select>
+
+            <label for="qualification">Qualification (if not, enter NA):</label>
+            <input type="text" id="qualification" name="qualification" required>
+
+            <label for="experience">Experience:</label>
+            <input type="text" id="experience" name="experience" required>
+
+            <label for="state">State:</label>
+            <select id="state" name="state" required>
+                <option value="">--Select State--</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="West Bengal">West Bengal</option>
+            </select>
+
+            <label for="district">District:</label>
+            <input type="text" id="district" name="district" required>
+
+            <label for="location">Location:</label>
+            <textarea id="location" name="location" required></textarea>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <button type="submit">Submit Application</button>
+            <button type="button" id="backButton">Back</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('jobApplicationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            alert('Submitted successfully!');
+            window.location.reload(); 
+        });
+
+        document.getElementById("backButton").addEventListener("click", function () {
+            window.location.href = "Freelancer.html";
+        });
+    </script>
+</body>
+</html>

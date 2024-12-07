@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Table</title>
+   <style>
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            background-color: white;
+            padding: 20px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .interview-button {
+            padding: 5px 10px;
+            background-color: #008cba;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .interview-button:hover {
+            background-color: #007bb5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Data Table</h1>
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>Sl No</th>
+                    <th>Name</th>
+                    <th>Contact Number</th>
+                    <th>Qualification/skill</th>
+                    <th>Email ID</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button id="populateButton">Populate Table</button>
+    </div>
+    <script>
+        document.getElementById("populateButton").addEventListener("click", function() {
+            const data = [
+                { slNo: 1, name: "Ram", contact: "9087654321", qualification: "B.Sc", email: "ram@gmail.com" },
+                { slNo: 2, name: "Bheem", contact: "8907654321", qualification: "M.Sc", email: "bheem@gmail.com" },
+                { slNo: 3, name: "Krish", contact: "8765490321", qualification: "B.Tech", email: "krish@gmail.com" },
+                { slNo: 4, name: "Sita", contact: "8756423100", qualification: "MBA", email: "sita@gmail.com" },
+                { slNo: 5, name: "Radhe", contact: "7890654321", qualification: "PhD", email: "radhe@gmail.com" }
+            ];
+
+            const tbody = document.querySelector("#dataTable tbody");
+            tbody.innerHTML = "";
+
+            data.forEach(item => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item.slNo}</td>
+                    <td>${item.name}</td>
+                    <td>${item.contact}</td>
+                    <td>${item.qualification}</td>
+                    <td>${item.email}</td>
+                    <td><button class="interview-button" onclick="organizeInterview('${item.name}')">Organize Interview</button></td>
+                `;
+                tbody.appendChild(row);
+            });
+        });
+        function organizeInterview(name) {
+            alert("Organizing an interview for " + name);
+        }
+    </script>
+</body>
+</html>

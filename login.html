@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIG Workers Website - Login & Register</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #4e92c3, #ffac67);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+
+      .container {
+        background: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 380px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 28px;
+        color: #333;
+        margin-bottom: 25px;
+        font-weight: 600;
+      }
+
+      .input-group {
+        position: relative;
+        margin-bottom: 20px;
+      }
+
+      input {
+        width: 100%;
+        padding: 14px;
+        border: 2px solid #4e92c3;
+        border-radius: 30px;
+        font-size: 16px;
+        outline: none;
+        transition: all 0.3s ease;
+        margin-bottom: 12px;
+      }
+
+      input:focus {
+        border-color: #ffac67;
+      }
+
+      button {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(to right, #4e92c3, #ffac67);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: background 0.3s ease;
+      }
+
+      button:hover {
+        background: linear-gradient(to right, #ffac67, #4e92c3);
+      }
+
+      .message {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .message a {
+        color: #4e92c3;
+        text-decoration: none;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .message a:hover {
+        text-decoration: underline;
+      }
+
+      .register-container,
+      .forgot-password-container,
+      .otp-container {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-container">
+        <h1>Login to SkillFlow</h1>
+        <form id="loginForm">
+          <div class="input-group">
+            <input type="text" placeholder="Username" required />
+          </div>
+          <div class="input-group">
+            <input type="password" placeholder="Password" required />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+        <p class="message">
+          <a onclick="toggleForgotPassword()">Forgot Password?</a>
+        </p>
+        <p class="message">
+          Not registered? <a onclick="toggleRegister()">Create an account</a>
+        </p>
+      </div>
+      <div class="register-container">
+        <h1>Create Account</h1>
+        <form id="registerForm">
+          <div class="input-group">
+            <input type="text" placeholder="Username" required />
+          </div>
+          <div class="input-group">
+            <input type="email" placeholder="Email" required />
+          </div>
+          <div class="input-group">
+            <input type="password" placeholder="Password" required />
+          </div>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+      <div class="forgot-password-container">
+        <h1>Forgot Password</h1>
+        <form id="forgotPasswordForm">
+          <div class="input-group">
+            <input type="text" placeholder="Username" required />
+          </div>
+          <div class="input-group">
+            <input type="email" placeholder="Email" required />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="otp-container">
+        <h1>OTP Verification & Reset Password</h1>
+        <form id="resetPasswordForm">
+          <div class="input-group">
+            <input type="text" placeholder="Enter submitted OTP" required />
+          </div>
+          <div class="input-group">
+            <input type="password" placeholder="New Password" required />
+          </div>
+          <div class="input-group">
+            <input
+              type="password"
+              placeholder="Confirm New Password"
+              required
+            />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function toggleLogin() {
+        document.querySelector(".login-container").style.display = "block";
+        document.querySelector(".register-container").style.display = "none";
+        document.querySelector(".forgot-password-container").style.display =
+          "none";
+        document.querySelector(".otp-container").style.display = "none";
+      }
+
+      function toggleRegister() {
+        document.querySelector(".login-container").style.display = "none";
+        document.querySelector(".register-container").style.display = "block";
+        document.querySelector(".forgot-password-container").style.display =
+          "none";
+        document.querySelector(".otp-container").style.display = "none";
+      }
+
+      function toggleForgotPassword() {
+        document.querySelector(".login-container").style.display = "none";
+        document.querySelector(".register-container").style.display = "none";
+        document.querySelector(".forgot-password-container").style.display =
+          "block";
+        document.querySelector(".otp-container").style.display = "none";
+      }
+
+      function showOTPContainer() {
+        document.querySelector(".login-container").style.display = "none";
+        document.querySelector(".register-container").style.display = "none";
+        document.querySelector(".forgot-password-container").style.display =
+          "none";
+        document.querySelector(".otp-container").style.display = "block";
+      }
+
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          alert("Logged in successfully.");
+          window.location.href = "Registrationwindow.html";
+        });
+
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          alert("Account created successfully.");
+          window.location.href = "Registrationwindow.html";
+        });
+
+      document
+        .getElementById("forgotPasswordForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          alert("OTP sent to your email.");
+          showOTPContainer();
+        });
+
+      document
+        .getElementById("resetPasswordForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          alert("Your password has been reset successfully.");
+          toggleLogin();
+        });
+    </script>
+  </body>
+</html>
